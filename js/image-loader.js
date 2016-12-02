@@ -1,4 +1,4 @@
-window.addEventLister('loader', function(e) {
+window.addEventListener('load', function(e) {
 	var imgs = document.querySelectorAll('.non-critical-img');
 
 	[].forEach.call(img, function (img) {

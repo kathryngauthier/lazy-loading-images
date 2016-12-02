@@ -11,13 +11,31 @@
 
   <div class="grid">
     {% for img in site.data.images %}
-      <div class="unit xs-1 m-1-2">
+      <div class="critical-img unit xs-1 m-1-2">
         <div class="embed embed-16by9">
           <img class="embed-item" src="images/{{img}}" alt="">
         </div>
       </div>
     {% endfor %}
+    {% for img in site.data.images offset:2 limit 2%}
+    <div class="non-critical-img unit xs-1 m-1-2">
+      <div class="imbed embed-16by9">
+        <img class="embed-item" data-src="images/{{img}}" alt="" hidden>
+        <noscript>
+          <img class="embed-item" src="images//{{img}}" alt="">
+        </noscript>
+      </div>
+    </div>
+  {% endfor %}
+  {% for img in site.data.images offset:4 %}
+    <div class="non-critical-img unit xs-1 m-1-2" hidden>
+      <div class="embed embed-16by9">
+        <img class="embed-item" data-src="images/{{img}}" alt="">
+      </div>
+    </div>
+    {% endfor %}
   </div>
 
+  <script> {% include_reltive js/img-loader.js %}</script>
 </body>
 </html>
